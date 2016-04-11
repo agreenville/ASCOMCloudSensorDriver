@@ -159,7 +159,7 @@ Partial Class SetupDialogForm
         Me.Name = "SetupDialogForm"
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "DeviceName Setup"
+        Me.Text = "Cloud Sensor Driver vs 1.0"
         Me.TableLayoutPanel1.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

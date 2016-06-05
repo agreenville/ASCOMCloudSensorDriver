@@ -1,5 +1,3 @@
-Imports Driver
-
 <ComVisible(False)>
 Public Class SetupDialogForm
     Friend s As String
@@ -55,13 +53,4 @@ Public Class SetupDialogForm
 
     End Sub
 
-    Public Sub TextAmbTemp_TextChanged(sender As Object, e As EventArgs) Handles TextAmbTemp.TextChanged
-        Timer1.Start()
-    End Sub
-
-    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-        If objSerial.Connected = True Then
-            TextAmbTemp.Text = sky
-        End If
-    End Sub
 End Class

@@ -32,7 +32,6 @@ Partial Class SetupDialogForm
         Me.chkTrace = New System.Windows.Forms.CheckBox()
         Me.ComboBoxComPort = New System.Windows.Forms.ComboBox()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.TextAmbTemp = New System.Windows.Forms.TextBox()
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -80,9 +79,9 @@ Partial Class SetupDialogForm
         Me.Label1.Location = New System.Drawing.Point(13, 15)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(264, 17)
+        Me.Label1.Size = New System.Drawing.Size(161, 17)
         Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Construct your driver's setup dialog here"
+        Me.Label1.Text = "Connect to cloud sensor"
         '
         'PictureBox1
         '
@@ -130,14 +129,6 @@ Partial Class SetupDialogForm
         'Timer1
         '
         '
-        'TextAmbTemp
-        '
-        Me.TextAmbTemp.Enabled = False
-        Me.TextAmbTemp.Location = New System.Drawing.Point(375, 98)
-        Me.TextAmbTemp.Name = "TextAmbTemp"
-        Me.TextAmbTemp.Size = New System.Drawing.Size(82, 22)
-        Me.TextAmbTemp.TabIndex = 10
-        '
         'SetupDialogForm
         '
         Me.AcceptButton = Me.OK_Button
@@ -145,7 +136,6 @@ Partial Class SetupDialogForm
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.Cancel_Button
         Me.ClientSize = New System.Drawing.Size(479, 282)
-        Me.Controls.Add(Me.TextAmbTemp)
         Me.Controls.Add(Me.ComboBoxComPort)
         Me.Controls.Add(Me.chkTrace)
         Me.Controls.Add(Me.label2)
@@ -175,5 +165,4 @@ Partial Class SetupDialogForm
     Friend WithEvents chkTrace As System.Windows.Forms.CheckBox
     Friend WithEvents ComboBoxComPort As System.Windows.Forms.ComboBox
     Friend WithEvents Timer1 As Timer
-    Friend WithEvents TextAmbTemp As TextBox
 End Class

@@ -62,8 +62,6 @@ Public Class SafetyMonitor
     Friend Shared driverID As String = "ASCOM.CloudSensor.SafetyMonitor"
     Private Shared driverDescription As String = "CloudSensor SafetyMonitor"
     Public objSerial As ASCOM.Utilities.Serial
-    Public sky As String
-    Friend TextAmbTemp
 
     Friend Shared comPortProfileName As String = "COM Port" 'Constants used for Profile persistence
     Friend Shared traceStateProfileName As String = "Trace Level"
@@ -114,9 +112,6 @@ Public Class SafetyMonitor
         ' or call a different dialog if connected
         If IsConnected Then
             System.Windows.Forms.MessageBox.Show("Already connected, just press OK")
-            objSerial.Transmit("sky#")
-            sky = objSerial.Receive()
-            TextAmbTemp.Text = sky
 
         End If
 
@@ -183,7 +178,7 @@ Public Class SafetyMonitor
                 objSerial = New ASCOM.Utilities.Serial
                 objSerial.PortName = SafetyMonitor.comPort '''portname
                 objSerial.Speed = 9600 ''' 19200 or 9600 for default bluetooth
-                objSerial.ReceiveTimeout = 1 '''5
+                objSerial.ReceiveTimeout = 5 ' don't set too low or not enough time for cloud sensor to send messages
                 objSerial.Connected = True
                 TL.LogMessage("Connected Set", "Connecting to port " + comPort)
                 objSerial.ClearBuffers()
@@ -263,6 +258,7 @@ Public Class SafetyMonitor
     Public ReadOnly Property IsSafe() As Boolean Implements ISafetyMonitor.IsSafe
         Get
             objSerial.Transmit("IS_SAFE#")
+
             Try
                 s = objSerial.ReceiveTerminated("#").Replace(vbCrLf, "")
 
@@ -330,6 +326,7 @@ Public Class SafetyMonitor
             If Not objSerial Is Nothing Then
                 If objSerial.Connected Then
                     objSerial.Transmit("CONNECT#")
+
                     Try
                         s = objSerial.ReceiveTerminated("#").Replace(vbCrLf, "")
                         If s = "GOTMESS#" Then
